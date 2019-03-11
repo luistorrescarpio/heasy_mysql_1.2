@@ -1,7 +1,7 @@
 <?php 
 /*
 	Nombre: heasy_mysql
-	Versión: 1.2.0
+	Versión: 1.2
 	Autor del Script: Luis Torres Carpio
 	Correo: luis.torres.carpio1@gmail.com
 	Descripción: 
@@ -65,9 +65,9 @@ function query($consulta){
 					break;
 				
 				case 'UPDATE':
-					if( !$mc->conex->query($consulta) ){
+					if( !$mc->conex->query($consulta) )
 						return ["error"=>$mc->conex->error]; 
-					}else
+					else
 						return 1;
 					break;	
 
@@ -88,24 +88,23 @@ function query($consulta){
 					}
 					if($results->num_rows>0){
 						while( $rr = mysqli_fetch_assoc($results) ) $rows[] = $rr;
-					
 						return $rows;
 					}else
 						return [];
 					break;
 					
 				case 'DELETE FROM':
-					if( !$mc->conex->query($consulta) ){
+					if( !$mc->conex->query($consulta) )
 						return ["error"=>$mc->conex->error]; 
-					}					
-					return 1;
+					else
+						return 1;
 					break;
 
 				case 'CREATE TABLE':
 
 					break;
 			}
-		$mc->cerrar();
+			$mc->cerrar();
 		}
 	}
 }
